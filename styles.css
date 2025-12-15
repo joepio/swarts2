@@ -83,61 +83,60 @@ body {
 /* Carousel */
 .carousel-container {
     width: 100%;
-    overflow: hidden;
-    padding-bottom: 4rem;
     position: relative;
     padding-top: 2rem;
-    /* Add some breathing room on top */
+    padding-bottom: 4rem;
+
+    /* Native scrolling */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    /* Hide scrollbars */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+    /* Smooth scrolling for user interaction */
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.carousel-container::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel-track {
-    display: flex;
+    display: inline-flex;
+    /* Use inline-flex to let it expand */
     align-items: center;
-    /* Center items vertically */
-    width: max-content;
     gap: 3rem;
-    /* Increase gap slightly */
-    animation: scroll 300s linear infinite;
-    /* Slowed down from 120s */
+    /* animation: removed */
 }
 
+/* CAROUSEL ITEMS */
 .carousel-item {
     flex: 0 0 auto;
-    /* Remove fixed width/height to allow variable sizes */
-    /* width: 400px; */
-    /* height: 300px; */
     max-height: 60vh;
-    /* Constraint height so it doesn't take over the screen */
+    display: inline-block;
+    /* Ensure they stay in line */
 }
 
 .carousel-item img {
     height: 100%;
-    /* Fill container height */
     width: auto;
-    /* Maintain aspect ratio */
     display: block;
     object-fit: contain;
-    /* Ensure full image is visible */
     filter: grayscale(0%);
-    /* Perhaps slight desaturation? User provided vibrant red image */
     transition: transform 0.5s ease;
     max-height: 60vh;
-    /* Double ensure image doesn't exceed this */
+    pointer-events: none;
+    /* Prevent image dragging interfering with scroll */
 }
 
 .carousel-item:hover img {
     transform: scale(1.02);
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-        /* Move by half the total width (assuming 2 sets of images) */
-    }
 }
 
 /* Contact Popover */
