@@ -31,11 +31,11 @@ def main():
         print(f"Processing {filename} -> {dest_filename}")
 
         # Use sips to resize (macOS built-in)
-        # --resampleHeight 600 matches our target height
+        # --resampleHeightWidthMax 1000 ensures the largest dimension is 1000px
         try:
             subprocess.run([
                 'sips',
-                '--resampleHeight', str(TARGET_HEIGHT),
+                '--resampleHeightWidthMax', '1000',
                 '--setProperty', 'format', 'jpeg',
                 source_path,
                 '--out', dest_path
