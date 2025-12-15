@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Swarts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo">STUDIO SWARTS</div>
+        <button id="contact-btn" class="contact-btn">CONTACT</button>
+    </header>
+
+    <main>
+        <div class="divider"></div>
+        <section class="hero">
+            <h1>TURNING IDEAS INTO SPACES<br>THAT MOVE AND CONNECT.</h1>
+        </section>
+
+        <section class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                <!-- Images will be injected here or hardcoded repeatedly for the loop -->
+                <div class="carousel-item"><img src="assets/image1.png" alt="Interior Design 1"></div>
+                <div class="carousel-item"><img src="assets/image2.png" alt="Interior Design 2"></div>
+                <div class="carousel-item"><img src="assets/image1.png" alt="Interior Design 1"></div>
+                <div class="carousel-item"><img src="assets/image2.png" alt="Interior Design 2"></div>
+                <div class="carousel-item"><img src="assets/image1.png" alt="Interior Design 1"></div>
+                <div class="carousel-item"><img src="assets/image2.png" alt="Interior Design 2"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="contact-popover" class="popover-overlay hidden">
+        <div class="popover-content">
+            <div class="popover-grid">
+                <div class="popover-left">
+                    <h2>CONTACT</h2>
+                    <p class="contact-detail">steven@studioswaarts.com<br>06 21210124</p>
+
+                    <h3 class="popover-subhead">I CREATE SPACES THAT SPEAK<br>THROUGH EXPERIENCE AND DETAIL.</h3>
+
+                    <p class="bio">
+                        Ik vertaal conceptuele ideeën naar ruimtelijke ervaringen. Ruimtes die spreken,
+                        betekenis dragen en een gevoel van identiteit oproepen.
+                    </p>
+                    <p class="bio">
+                        Als interieur designer en conceptontwikkelaar werk ik niet vanuit trends, maar
+                        vanuit vragen en uitdagingen die om creatieve oplossingen vragen. Door
+                        menselijke creativiteit en imperfectie te combineren met functie en
+                        functionaliteit ontstaan omgevingen die werken, karakter hebben en uitnodigen
+                        om beleefd te worden.
+                    </p>
+                    <p class="bio">
+                        Sterke ontwerpen ontstaan in samenwerking. Door ideeën te delen en mensen
+                        te verbinden groeien concepten uit tot ruimtes die vanzelfsprekend voelen,
+                        leven ademen en een eigen stem hebben, plekken die herinnerd worden omdat
+                        ze durven te bestaan zoals ze zijn.
+                    </p>
+
+                    <div class="client-list-section">
+                        <h4>CLIENT LIST</h4>
+                        <p class="client-list">
+                            AMCAT – ATHORA – AVOLTA – BEATPORT – BOUWINVEST – BUDWEISER –
+                            BUUTVRIJ – CUSHMAN&WAKEFIELD – CINEKID – CLARKS – CORONA –
+                            DARKTRACE – DADARA – DE KEIZER – DEKA – DRISCOLLS – EASTPAK –
+                            H&M – JUPILER – KARL LAGERFELD – CATHARIJNE CONVENT – KINGPINS –
+                            LEFFE – NAPAPIJRI – NLV - PANORAMA – RABOBANK – SCOTCH & SODA –
+                            SOFI TUKKER – THE AVOCADO SHOW – THE NORTH FACE – UNILEVER –
+                            VAN GOGH MUSEUM – WIPRO – WRANGLER – ZALANDO
+                        </p>
+                    </div>
+                </div>
+                <div class="popover-right">
+                    <!-- Right side can be empty or have an image as per the user's screenshot, it looked like a dark overlay on the left -->
+                    <!-- Actually, looking at the screenshot, the popover is a dark grey block on the LEFT side of the screen, and the rest is blurred/dimmed or just visible?
+                          Wait, the screenshot "Screen 14" shows the popover taking up the LEFT half (approx 40%) of the screen, dark grey bg, white text.
+                          And there is a horizontal red line crossing the screen in the background? No, that might be part of an image.
+                          I will implement the popover as a modal that mimics that left-side drawer/overlay style.
+                     -->
+                    <button id="close-popover" class="close-btn">×</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

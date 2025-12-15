@@ -1,0 +1,242 @@
+:root {
+    --bg-color: #ECECEC;
+    /* Light grey/off-white background */
+    --text-color: #1A1A1A;
+    --accent-color: #000000;
+    --popover-bg: #555555;
+    /* Dark grey from screenshot */
+    --popover-text: #FFFFFF;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.contact-btn {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+.divider {
+    height: 1px;
+    background-color: #000;
+    margin: 0 3rem;
+    opacity: 0.8;
+}
+
+/* Hero */
+.hero {
+    padding: 4rem 3rem;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-family: var(--font-body);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+}
+
+/* Carousel */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 4rem;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 400px;
+    /* Adjust based on image aspect ratio */
+    height: 300px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0%);
+    /* Perhaps slight desaturation? User provided vibrant red image */
+    transition: transform 0.5s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.02);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Move by half the total width (assuming 2 sets of images) */
+    }
+}
+
+/* Contact Popover */
+.popover-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    /* Slight dim */
+    backdrop-filter: blur(2px);
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    /* Align left */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.popover-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popover-content {
+    background-color: #585858;
+    /* Dark grey */
+    width: 600px;
+    /* Or 40-50% width */
+    height: 100%;
+    color: #fff;
+    padding: 4rem 3rem;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.popover-overlay.visible .popover-content {
+    transform: translateX(0);
+}
+
+.popover-grid {
+    position: relative;
+    height: 100%;
+}
+
+.popover-left h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.contact-detail {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.popover-subhead {
+    font-family: var(--font-heading);
+    /* Monospacey feel */
+    font-size: 1.4rem;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    max-width: 90%;
+}
+
+.client-list-section {
+    margin-top: 4rem;
+}
+
+.client-list-section h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+}
+
+.client-list {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+/* Close Button logic is a bit implicit in design, usually clicking outside works,
+   but I'll add a hidden close mechanism or just verify click-outside in JS. */
+
+/* Responsive */
+@media (max-width: 768px) {
+    .popover-content {
+        width: 90%;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
