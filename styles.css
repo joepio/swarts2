@@ -97,8 +97,8 @@ body {
     width: max-content;
     gap: 3rem;
     /* Increase gap slightly */
-    animation: scroll 120s linear infinite;
-    /* Slowed down from 40s */
+    animation: scroll 300s linear infinite;
+    /* Slowed down from 120s */
 }
 
 .carousel-item {
