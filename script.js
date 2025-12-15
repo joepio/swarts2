@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const popover = document.getElementById('contact-popover');
     const popoverContent = popover.querySelector('.popover-content');
 
+    const closeBtn = document.getElementById('close-popover'); // Get button
+
     // Toggle Popover
     contactBtn.addEventListener('click', () => {
         popover.classList.remove('hidden');
@@ -10,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         void popover.offsetWidth;
         popover.classList.add('visible');
     });
+
+    // Close on button click
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closePopover);
+    }
 
     // Close on click outside
     popover.addEventListener('click', (e) => {

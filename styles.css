@@ -240,8 +240,31 @@ body {
     text-transform: uppercase;
 }
 
-/* Close Button logic is a bit implicit in design, usually clicking outside works,
-   but I'll add a hidden close mechanism or just verify click-outside in JS. */
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Subtle border */
+    color: #fff;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
